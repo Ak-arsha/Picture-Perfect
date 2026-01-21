@@ -2,7 +2,13 @@
 
 **Picture Perfect** is an advanced AI-powered image post-processing tool designed to automatically enhance group photos. It leverages computer vision and deep learning techniques to correct common imperfections such as closed eyes, awkward smiles, and undirected gazes, ensuring everyone looks their best.
 
-## 🚀 Features
+## 🚀 Recently Added Features
+
+*   **🎨 Glassmorphic 3D UI**: A stunning, modern interface with animated gradients and glass-effect cards for a premium user experience.
+*   **📂 User Dashboard**: A personalized dashboard to view your history of enhancements and download past edits.
+*   **☁️ Cloud Sync**: Automatically saves your original and processed photos to the cloud (Supabase) for easy access anywhere.
+
+## ✨ Core Capabilities
 
 *   **😁 Smile Correction**: Automatically detects and adjusts smiles to look natural using MediaPipe Face Mesh.
 *   **👀 Gaze Correction**: Realigns eye gaze to look directly at the camera, fixing "looking away" shots.
@@ -11,10 +17,9 @@
 
 ## 🛠️ Technology Stack
 
-*   **Python 3.8+**
-*   **OpenCV**: For high-performance image processing and manipulation.
-*   **MediaPipe**: For robust and real-time face landmark detection (468 points).
-*   **NumPy**: For efficient matrix operations and geometric transformations.
+*   **Frontend**: Streamlit (with Custom CSS/JS)
+*   **Backend**: Supabase (Auth & Storage)
+*   **AI/CV**: OpenCV, MediaPipe, NumPy
 
 ## 📦 Installation
 
@@ -24,15 +29,10 @@
     cd picture-perfect
     ```
 
-2.  **Set up a virtual environment (Recommended)**
+2.  **Set up a virtual environment**
     ```bash
-    # Windows
     python -m venv venv
     .\venv\Scripts\activate
-
-    # macOS/Linux
-    python3 -m venv venv
-    source venv/bin/activate
     ```
 
 3.  **Install dependencies**
@@ -40,21 +40,27 @@
     pip install -r requirements.txt
     ```
 
+4.  **Configure Secrets**
+    Create `.streamlit/secrets.toml` with your Supabase credentials:
+    ```toml
+    [supabase]
+    url = "your-project-url"
+    key = "your-anon-key"
+    ```
+
 ## 📖 Usage
 
-1.  Place your input images in the `test_images` folder (or verify the default `group.jpg` exists).
-2.  Run the main processing script:
+1.  Run the application:
     ```bash
-    python main.py
+    streamlit run app.py
     ```
-3.  The processed results will be saved in `test_images/` with prefixes like `result_`.
+2.  **Login/Signup** to access cloud features.
+3.  Upload a photo in the **"✨ Create"** tab and adjust sliders.
+4.  View your past edits in the **"📂 Dashboard"** tab.
 
-## 🧠 How It Works
+## 📝 License
 
-### Gaze Correction
-The algorithm extracts the iris region using facial landmarks, synthesizes a clean eye texture, and "warps" the iris to the center of the eye socket. It strictly adheres to the sclera boundaries to maintain realism and adds a synthetic catchlight for vitality.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Smile Warp
-Uses mesh deformation to lift the corners of the mouth and adjust the lip curvature, creating a pleasant and natural smile without distorting the surrounding skin.
-
-*Created with ❤️ by Akarsha Agarwal*
+---
+*Created with ❤️ by [Your Name]*
