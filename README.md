@@ -57,9 +57,4 @@ The algorithm extracts the iris region using facial landmarks, synthesizes a cle
 ### Smile Warp
 Uses mesh deformation to lift the corners of the mouth and adjust the lip curvature, creating a pleasant and natural smile without distorting the surrounding skin.
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-*Created with ❤️ by [Your Name]*
+*Created with ❤️ by Akarsha Agarwal*
