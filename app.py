@@ -175,15 +175,33 @@ def login_page():
         if st.button("Continue with Google", use_container_width=True):
             if SUPABASE_AVAILABLE:
                 try:
+                    # Get the OAuth URL
                     res = supabase.auth.sign_in_with_oauth({
                         "provider": "google",
                         "options": {
-                            "redirect_to": f"{st.secrets['supabase']['url']}/auth/v1/callback" 
+                            "query_params": {"access_type": "offline", "prompt": "consent"}
                         }
                     })
+                    
                     if res.url:
-                        st.markdown(f'<meta http-equiv="refresh" content="0;url={res.url}">', unsafe_allow_html=True)
-                except: st.error("OAuth Failed")
+                        # Use JS for reliable redirect + Fallback link
+                        st.markdown(f'''
+                            <a href="{res.url}" target="_self" style="
+                                display: block; 
+                                text-align: center; 
+                                color: #b76e79; 
+                                font-weight: bold; 
+                                margin-top: 10px;
+                                text-decoration: none;
+                            ">Click here if not redirected automatically...</a>
+                            <script>
+                                setTimeout(function() {{
+                                    window.top.location.href = "{res.url}";
+                                }}, 1000);
+                            </script>
+                        ''', unsafe_allow_html=True)
+                except Exception as e:
+                    st.error(f"OAuth Error: {e}")
 
 # --- Core Logic ---
 
