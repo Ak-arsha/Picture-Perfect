@@ -201,7 +201,12 @@ def login_page():
                             </script>
                         ''', unsafe_allow_html=True)
                 except Exception as e:
-                    st.error(f"OAuth Error: {e}")
+                    err_msg = str(e)
+                    if "provider is not enabled" in err_msg:
+                        st.error("⚠️ Google Login is disabled in your Supabase project.")
+                        st.info("Go to Supabase Dashboard -> Authentication -> Providers -> Google and enable it.")
+                    else:
+                        st.error(f"OAuth Error: {err_msg}")
 
 # --- Core Logic ---
 
