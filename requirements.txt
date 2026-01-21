@@ -1,5 +1,7 @@
 opencv-python
 mediapipe
+streamlit
+supabase
 numpy
 pillow
 torch
