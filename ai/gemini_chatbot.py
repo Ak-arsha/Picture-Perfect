@@ -2,7 +2,7 @@ import os
 import json
 import google.generativeai as genai
 
-genai.configure(api_key=os.getenv("gen-lang-client-0326822842"))
+genai.configure(api_key="AIzaSyCqyOa47KltbWUucr_BY2mR7EBVbDgWAnI")
 
 model = genai.GenerativeModel("gemini-pro")
 

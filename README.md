@@ -1,66 +1,49 @@
 # Picture Perfect 📸
 
-**Picture Perfect** is an advanced AI-powered image post-processing tool designed to automatically enhance group photos. It leverages computer vision and deep learning techniques to correct common imperfections such as closed eyes, awkward smiles, and undirected gazes, ensuring everyone looks their best.
+**Picture Perfect** is an advanced AI-powered image post-processing studio. It combines computer vision for facial corrections with generative AI (Gemini) for natural language image editing, all wrapped in a stunning 3D-inspired interface.
 
-## 🚀 Recently Added Features
+## 🚀 Features
 
-*   **🎨 Glassmorphic 3D UI**: A stunning, modern interface with animated gradients and glass-effect cards for a premium user experience.
-*   **📂 User Dashboard**: A personalized dashboard to view your history of enhancements and download past edits.
-*   **☁️ Cloud Sync**: Automatically saves your original and processed photos to the cloud (Supabase) for easy access anywhere.
+### 🌟 Studio Mode
+*   **Smile Correction**: Natural smile enhancement using MediaPipe Face Mesh.
+*   **Gaze Correction**: Realigns eyes to look directly at the camera.
+*   **Instant Enhancements**: Automated pipeline for group photos.
 
-## ✨ Core Capabilities
+### 🤖 AI Editor (New!)
+*   **Chat with your Photos**: Use natural language to edit your images.
+    *   *"Make it warmer and softer"*
+    *   *"Increase contrast and sharpness"*
+*   **Powered by Gemini**: Uses Google's Gemini Pro to understand your creative intent.
 
-*   **😁 Smile Correction**: Automatically detects and adjusts smiles to look natural using MediaPipe Face Mesh.
-*   **👀 Gaze Correction**: Realigns eye gaze to look directly at the camera, fixing "looking away" shots.
-*   **✨ Facial Enhancement**: Subtle sharpening and lighting adjustments to bring focus to the faces.
-*   **🤖 Automated Pipeline**: Process images with a single script.
+### 📂 Cloud Gallery
+*   **Auto-Sync**: Safely stores your masterpieces in Supabase.
+*   **Dashboard**: View and download your history of edits from anywhere.
 
-## 🛠️ Technology Stack
+### 🎨 Visuals
+*   **3D Glassmorphism**: Premium glass-effect cards with 3D hover interactions.
+*   **Deep Aesthetics**: Animated deep-purple and neon gradients for an immersive experience.
 
-*   **Frontend**: Streamlit (with Custom CSS/JS)
-*   **Backend**: Supabase (Auth & Storage)
-*   **AI/CV**: OpenCV, MediaPipe, NumPy
+## 🛠️ Tech Stack
+*   **Frontend**: Streamlit (Advanced CSS)
+*   **AI Core**: OpenCV, MediaPipe, Google Gemini Pro
+*   **Backend**: Supabase (Auth, DB, Storage)
 
-## 📦 Installation
+## 📦 Quick Start
 
-1.  **Clone the repository**
+1.  **Clone & Install**
     ```bash
-    git clone https://github.com/yourusername/picture-perfect.git
-    cd picture-perfect
-    ```
-
-2.  **Set up a virtual environment**
-    ```bash
-    python -m venv venv
-    .\venv\Scripts\activate
-    ```
-
-3.  **Install dependencies**
-    ```bash
+    git clone ...
     pip install -r requirements.txt
     ```
-
-4.  **Configure Secrets**
-    Create `.streamlit/secrets.toml` with your Supabase credentials:
-    ```toml
-    [supabase]
-    url = "your-project-url"
-    key = "your-anon-key"
-    ```
-
-## 📖 Usage
-
-1.  Run the application:
+2.  **Secrets**
+    Add your Supabase and Gemini keys to `.streamlit/secrets.toml`.
+3.  **Run**
     ```bash
     streamlit run app.py
     ```
-2.  **Login/Signup** to access cloud features.
-3.  Upload a photo in the **"✨ Create"** tab and adjust sliders.
-4.  View your past edits in the **"📂 Dashboard"** tab.
 
 ## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License.
 
 ---
-*Created with ❤️ by [Your Name]*
+*Created with ❤️ & AI*
