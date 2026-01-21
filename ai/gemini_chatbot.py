@@ -4,7 +4,8 @@ import google.generativeai as genai
 
 genai.configure(api_key="AIzaSyCqyOa47KltbWUucr_BY2mR7EBVbDgWAnI")
 
-model = genai.GenerativeModel("gemini-pro")
+# Using Flash model
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 SYSTEM_PROMPT = """
 You are an image editing assistant.
@@ -27,11 +28,15 @@ Rules:
 """
 
 def parse_image_edit(user_text):
-    response = model.generate_content(
-        SYSTEM_PROMPT + "\nUser request: " + user_text
-    )
-
     try:
+        response = model.generate_content(
+            SYSTEM_PROMPT + "\nUser request: " + user_text
+        )
         return json.loads(response.text)
-    except:
+    except Exception as e:
+        print(f"Gemini Error: {e}")
+        # Debug list models
+        try:
+             print("Available models:", [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods])
+        except: pass
         return {}
